@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>
+            Signup
+        </title>
+        
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+      function validPhone(){
+        if(isNaN(document.getElementById("phn").value)){
+            window.alert("Check your phone number!!");
+            return false;
+        }
+        return false;
+    }
+  </script>
+    </head>
+    <body class="bg-light">
+        <div style="padding: 180px;">
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4" >
+                    <div class="alert {{alert}}">
+                        {{msg}}
+                    </div>
+                    <div class="card" style="box-shadow: 15px 10px 5px rgb(173, 171, 171)">
+                        
+                        <div class="card-header">Signup</div>
+                        <div style="padding: 30px;box-shadow: 15px;">
+                            <form action="/signup" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="mail" id="" class="form-control" placeholder="E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="phone" id="phn" class="form-control" placeholder="10 Digit Phone Number" max="10" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="pas" id="" class="form-control" placeholder="Password" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-dark btn-block" type="reset">Reset</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="submit" class="btn btn-primary btn-block" onclick="validPhone()" value="Signup" >
+                                    </div>
+                                </div>
+                            </form>
+                            <a href="/">Already a user?</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+        </div>
+    </body>
+</html>

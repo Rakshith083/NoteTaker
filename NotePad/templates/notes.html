@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>all notes</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+          </head>
+        <body>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <a class="navbar-brand" href="#">Note Taker</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collaps-Navbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collaps-Navbar">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/save">Create</a>
+                    </li>  
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">logout</a>
+                    </li>  
+                  </ul>
+                </div>  
+                <input class="form-control" id="myInput" style="width: 20%; float: right;" type="text" placeholder="Search..">
+              </nav><br>
+              <div class="container">
+                <h3>Your notes</h3>
+                <p>{{msg}} <span class="glyphicon">&#x270f;</span></p>
+                <table class="table  table-bordered table-hover table-condensed">
+                  <tr class="thead-dark">
+                    <th><center>Title</center></th>
+                    <th><center>Created</center></th>
+                    <th><center>Last Opened</center></th>
+                    <th><center>
+                      <span class="glyphicon">&#xe020;</span>
+                      Remove / View
+                      <span class="glyphicon">&#xe105;</span>
+                    </center>
+                  </th>
+                  </tr>
+                  <tbody id="myTable">{% for row in notes %}
+                    <tr>
+                      {% for col in row %}
+                      <td> <center>{{ col }}</center> </td>
+                      {% endfor %}
+                      <td>
+                        <center><a href="/delete/{{row[0]}}"> Remove 
+                        </a>/
+                        <a href="/view/{{row[0]}}">View 
+                        </a></center>
+                      </td>
+                    </tr>
+                    {% endfor %}</tbody>
+                </table>
+              </div>
+
+              <script>
+                $(document).ready(function(){
+                  $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+                </script>
+        </body>
+</html>
