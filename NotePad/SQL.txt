@@ -1,3 +1,5 @@
+Data base name : MyDb
+
 CREATE TABLE users(
 name varchar(20),
 email varchar(25) primary key,
