@@ -4,6 +4,6 @@ def mySqlConnect():
   host="localhost",
   user="root",
   password="",
-  database="MyDb"
+  database="notes"
   )
   return mydb
