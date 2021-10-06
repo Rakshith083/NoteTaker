@@ -1,4 +1,4 @@
-Data base name : MyDb
+CREATE DATABASE notes;
 
 CREATE TABLE users(
 name varchar(20),
@@ -13,5 +13,5 @@ content varchar(10000),
 created_date varchar(25),
 last_opened varchar(25),
 owner varchar(25),
-foreign key (owner) references users(email)
+foreign key (owner) references users(email) On delete Cascade
 );
