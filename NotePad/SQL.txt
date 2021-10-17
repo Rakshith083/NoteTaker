@@ -1,4 +1,4 @@
-CREATE DATABASE notes;
+CREATE DATABASE notes_database;
 
 CREATE TABLE users(
 name varchar(20),
