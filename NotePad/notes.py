@@ -1,8 +1,5 @@
 from flask import *
 from mycon import mySqlConnect
-import mysql.connector
-import re
-import random
 import datetime
 from random import *
 
